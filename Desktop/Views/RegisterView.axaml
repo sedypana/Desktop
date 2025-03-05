@@ -1,0 +1,74 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:vm="using:Desktop.ViewModels"
+			 xmlns:v="using:Desktop.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+             x:Class="Desktop.Views.RegisterView"
+			 x:DataType="vm:RegisterViewModel">
+	<StackPanel Width="800">
+		<StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+			<TextBlock Text="Регистрация жюри/модератора" FontSize="30" FontWeight="Bold" Margin="0,0,0,10" VerticalAlignment="Center"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal">
+		
+		<StackPanel Width="350">
+
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+				
+				<TextBlock Text="Id Number:" VerticalAlignment="Center"/>
+				<TextBox Text="13002" IsReadOnly="True" Width="200" Margin="10" TextAlignment="Center" Background="Gray" FontWeight="Bold" FontStyle="Italic"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+				<TextBlock Text="ФИО:" VerticalAlignment="Center"/>
+				<TextBox Width="200" Margin="10"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+				<TextBlock Text="Пол:" VerticalAlignment="Center"/>
+				<ComboBox Width="200" Margin="10">
+					<ComboBoxItem Content="Мужской"/>
+					<ComboBoxItem Content="Женский"/>
+				</ComboBox>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+				<TextBlock Text="Роль:" VerticalAlignment="Center"/>
+				<ComboBox Width="200" Margin="10">
+					<ComboBoxItem Content="Жюри"/>
+					<ComboBoxItem Content="Модератор"/>
+				</ComboBox>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+				<TextBlock Text="Email:" VerticalAlignment="Center"/>
+				<TextBox Width="200" Margin="10"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+				<TextBlock Text="Телефон:" VerticalAlignment="Center"/>
+				<TextBox Watermark="+7(___)___-__-__" Width="200" Margin="10" FontWeight="Bold" FontStretch="Expanded"/>
+			</StackPanel>
+
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+				<TextBlock Text="Мероприятие:" VerticalAlignment="Center" />
+				<ComboBox Width="200" Margin="10,10,10,10"/>
+			</StackPanel>
+		</StackPanel>
+			<StackPanel Width="400">
+			<Image Source="{Binding Image}" Height="220"/>
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+					<TextBlock Text="Пароль:" VerticalAlignment="Center"/>
+					<TextBox Watermark="Password" PasswordChar="*" Width="200" Margin="10" FontStyle="Italic"/>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+					<TextBlock Text="Повтор пароля:" VerticalAlignment="Center"/>
+					<TextBox Watermark="Re-enter password" PasswordChar="*" Width="200" Margin="10" FontStyle="Italic"/>
+				</StackPanel>
+				
+				<CheckBox Content="Видимый пароль" HorizontalAlignment="Right" Width="200"/>
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10" Width="200" Margin="10">
+					<Button Content="Ок" Width="80"/>
+					<Button Content="Отмена" Width="80"/>
+			</StackPanel>
+		</StackPanel>
+	</StackPanel>
+	</StackPanel>
+</UserControl>

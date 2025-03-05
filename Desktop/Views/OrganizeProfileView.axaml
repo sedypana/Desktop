@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:vm="using:Desktop.ViewModels"
+			 xmlns:v="using:Desktop.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Desktop.Views.OrganizeProfileView"
+			 x:DataType="vm:OrganizeProfileViewModel">
+	<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+		<Image Source="{Binding Image}" Width="400" Height="200"/>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+			<StackPanel Margin="10">
+			<TextBlock Text="{Binding NameFirst, StringFormat=ФИО: {0}}"/>
+			</StackPanel>
+			<StackPanel Margin="10">
+			<TextBlock Text="{Binding NameLast}" Margin="5,0,0,0"/>
+			</StackPanel>
+			<StackPanel Margin="10">
+			<TextBlock Text="{Binding Patronymic}" Margin="5,0,0,0"/>
+			</StackPanel>
+				
+		</StackPanel>
+		<TextBlock Text="{Binding NumberPhone, StringFormat=Номер телефона: +{0}}" HorizontalAlignment="Center"/>
+		<TextBlock Text="{Binding Dr, StringFormat=Дата Рождения: {0}}" Margin="0,10,0,0" HorizontalAlignment="Center"/>
+		<Button Width="200" Command="{Binding NavigatetoOrganize}" Height="100" CornerRadius="10" HorizontalAlignment="Center" Margin="10">
+			<TextBlock Text="Назад" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontFamily="Arial"/>
+		</Button>
+	</StackPanel>
+</UserControl>

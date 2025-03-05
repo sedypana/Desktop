@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:v="using:Desktop.Views"
+			 xmlns:vm="using:Desktop.ViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="800"
+             x:Class="Desktop.Views.LoginView"
+			 x:DataType="vm:LoginViewModel">
+	<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+		<TextBlock Text="Авторизация" HorizontalAlignment="Center" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold"/>
+		<StackPanel Margin="15">
+			<TextBox Width="200" Margin="10" Text="{Binding EmailUser}"/>
+			<TextBox Width="200" Text="{Binding PasswordUser}"/>
+		</StackPanel>
+		<StackPanel>
+			<TextBlock Text="{Binding Captcha_gen}" Margin="10" HorizontalAlignment="Center"/>
+			<TextBox Text="{Binding Captcha}" Width="200"/>
+			<TextBlock Text="{Binding Message}" Margin="10"/>
+		</StackPanel>
+		<StackPanel>
+	        <Button Command="{Binding Login}" HorizontalAlignment="Center" Width="100" Margin="5" BorderThickness="8">
+				<TextBlock Text="Вход" HorizontalAlignment="Center"/>
+			</Button>
+	        <Button Command="{Binding NavigatetoMain}" HorizontalAlignment="Center" Width="100" BorderThickness="8">
+				<TextBlock Text="Назад" HorizontalAlignment="Center"/>
+			</Button>
+		</StackPanel>
+		
+	</StackPanel>
+</UserControl>

@@ -1,0 +1,66 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:v="using:Desktop.Views"
+			 xmlns:m="using:Desktop.Models"
+			 xmlns:vm="using:Desktop.ViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1366" d:DesignHeight="800"
+             x:Class="Desktop.Views.MainView"
+			 x:DataType="vm:MainViewModel"
+			 x:Name="Main">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+			<TextBlock Text="Список мероприятий" FontSize="15" VerticalAlignment="Center"/>
+		</StackPanel>
+
+		<StackPanel Margin="10" Orientation="Horizontal" VerticalAlignment="Center">
+			<Button Width="130" Height="50" IsVisible="{Binding Enabled}" IsEnabled="{Binding Enabled}" HorizontalAlignment="Right" Command="{Binding NavigatetoLogin}">
+				<TextBlock Text="Войти" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>	
+			</Button>
+			<Button Content="Мой профиль" IsVisible="{Binding Enabled2}" Width="130" Height="50" IsEnabled="{Binding Enabled2}" Margin="40,0,0,0" HorizontalAlignment="Right" Command="{Binding NavigatetoOrganize}">
+				<TextBlock Text="Мой профиль" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+			</Button>
+			</StackPanel>
+
+		<Grid Grid.Row="1" Margin="10">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+
+			<StackPanel Grid.Column="0" Width="300" Margin="0,0,10,0">
+				<TextBlock Text="Фильтр по направлению:"/>
+				<ComboBox Name="DirectionFilter"/>
+				<TextBlock Text="Фильтр по дате:" Margin="0,10,0,0"/>
+				<DatePicker Name="DateFilter"/>
+				<Button Content="Применить" Margin="0,10,0,0"/>
+			</StackPanel>
+
+			<ListBox ItemsSource="{Binding Events}" Grid.Column="1" Name="EventsList">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<Border BorderThickness="1" BorderBrush="Gray" Margin="5" Padding="10">
+							<StackPanel Orientation="Horizontal">
+								<StackPanel>
+								<Image Source="{Binding Photo_Image}" Width="100" Height="100"/>
+									
+								</StackPanel>	
+								<StackPanel Margin="10">
+									<TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+									<TextBlock Text="{Binding DateStart, StringFormat=Дата начала: {0}}"/>
+									<TextBlock Text="{Binding City, StringFormat=Количество дней: {0}}"/>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</Grid>
+	</Grid>
+</UserControl>
