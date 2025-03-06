@@ -39,11 +39,11 @@ namespace Desktop.ViewModels
 
             if (organizer.IdGender == 1)
             {
-                Message2 = $"Mr. {organizer.NameFirst} {organizer.NameLast}";
+                Message2 = $"Mr. {organizer.NameLast} {organizer.Patronymic}";
             }
             else
             {
-                Message2 = $"Mrs. {organizer.NameFirst} {organizer.NameLast}";
+                Message2 = $"Mrs. {organizer.NameLast} {organizer.Patronymic}";
             }
 
             if (CurrentTime >= utro_nachalo && CurrentTime <= utro_konec)
