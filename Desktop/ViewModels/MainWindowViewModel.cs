@@ -20,7 +20,7 @@ namespace Desktop.ViewModels
         {
             NavigatetoLogin = ReactiveCommand.Create(() => CurrentView = new LoginViewModel(this));
             NavigatetoMain = ReactiveCommand.Create(() => CurrentView = new MainViewModel(this, null));
-            NavigatetoRegister = ReactiveCommand.Create(() => CurrentView = new RegisterViewModel(this));
+            NavigatetoRegister = ReactiveCommand.Create(() => CurrentView = new RegisterViewModel(this,null));
             CurrentView = new MainViewModel(this, null);
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Avalonia.Media.Imaging;
+using System;
 using System.Collections.Generic;
 
 namespace Desktop.Models;
@@ -28,6 +29,7 @@ public partial class Juri
     public string Password { get; set; } = null!;
 
     public string Foto { get; set; } = null!;
+    public Bitmap Image => ConvertToBItmap.LoadImage(Foto, "D:\\desktop\\Desktop\\Desktop\\Assets\\juri_media\\");
 
     public int? IdRole { get; set; }
 

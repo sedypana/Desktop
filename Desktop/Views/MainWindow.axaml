@@ -7,7 +7,7 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Desktop.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
+        Icon="/Assets/cardano_ada_crypto_icon_264376.ico"
         Title="Desktop">
 	<Grid>
 		<ContentControl Content="{Binding CurrentView}"/>

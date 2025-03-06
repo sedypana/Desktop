@@ -6,10 +6,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
              x:Class="Desktop.Views.RegisterView"
-			 x:DataType="vm:RegisterViewModel">
+			 x:DataType="vm:RegisterViewModel"
+			 Background="#ccc3da">
 	<StackPanel Width="800">
 		<StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-			<TextBlock Text="Регистрация жюри/модератора" FontSize="30" FontWeight="Bold" Margin="0,0,0,10" VerticalAlignment="Center"/>
+			<TextBlock Foreground="#09244b" Text="Регистрация жюри/модератора" FontSize="25" FontWeight="Bold" Margin="0,10,0,10" VerticalAlignment="Center"/>
 		</StackPanel>
 		<StackPanel Orientation="Horizontal">
 		
@@ -17,57 +18,112 @@
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 				
-				<TextBlock Text="Id Number:" VerticalAlignment="Center"/>
-				<TextBox Text="13002" IsReadOnly="True" Width="200" Margin="10" TextAlignment="Center" Background="Gray" FontWeight="Bold" FontStyle="Italic"/>
+				<TextBlock Foreground="#09244b" Text="Id Number:" VerticalAlignment="Center"/>
+				<TextBox BorderBrush="#09244b" BorderThickness="2" Text="13002" IsReadOnly="True" Width="200" Margin="10" TextAlignment="Center" Background="Gray" FontWeight="Bold" FontStyle="Italic"/>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-				<TextBlock Text="ФИО:" VerticalAlignment="Center"/>
-				<TextBox Width="200" Margin="10"/>
+				<TextBlock Foreground="#09244b" Text="Фамилия:" VerticalAlignment="Center"/>
+				<TextBox BorderBrush="#09244b" BorderThickness="2" Width="200" Margin="10" Text="{Binding Last_Name}"/>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-				<TextBlock Text="Пол:" VerticalAlignment="Center"/>
-				<ComboBox Width="200" Margin="10">
-					<ComboBoxItem Content="Мужской"/>
-					<ComboBoxItem Content="Женский"/>
+				<TextBlock Foreground="#09244b" Text="Имя:" VerticalAlignment="Center"/>
+				<TextBox BorderBrush="#09244b" BorderThickness="2" Width="200" Margin="10" Text="{Binding First_Name}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+				<TextBlock Foreground="#09244b" Text="Отчество:" VerticalAlignment="Center"/>
+				<TextBox BorderBrush="#09244b" BorderThickness="2" Text="{Binding Patronymic}" Width="200" Margin="10"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+				<TextBlock Foreground="#09244b" Text="Пол:" VerticalAlignment="Center"/>
+				<ComboBox BorderBrush="#09244b" BorderThickness="2" ItemsSource="{Binding GenderList}" SelectedItem="{Binding SelectGender}"
+					Width="200" MaxDropDownHeight="300" Margin="10">
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<TextBlock Foreground="#09244b" Text="{Binding NameGender}"/>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
 				</ComboBox>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-				<TextBlock Text="Роль:" VerticalAlignment="Center"/>
-				<ComboBox Width="200" Margin="10">
-					<ComboBoxItem Content="Жюри"/>
-					<ComboBoxItem Content="Модератор"/>
+				<TextBlock Foreground="#09244b" Text="Роль:" VerticalAlignment="Center"/>
+				<ComboBox BorderBrush="#09244b" BorderThickness="2" ItemsSource="{Binding RoleList}" SelectedItem="{Binding SelectRole}"
+					Width="200" MaxDropDownHeight="300" Margin="10">
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding NameRole}"/>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
 				</ComboBox>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-				<TextBlock Text="Email:" VerticalAlignment="Center"/>
-				<TextBox Width="200" Margin="10"/>
+				<TextBlock Foreground="#09244b" Text="Email:" VerticalAlignment="Center"/>
+				<TextBox BorderBrush="#09244b" BorderThickness="2" Text="{Binding Email}" Width="200" Margin="10"/>
 			</StackPanel>
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-				<TextBlock Text="Телефон:" VerticalAlignment="Center"/>
-				<TextBox Watermark="+7(___)___-__-__" Width="200" Margin="10" FontWeight="Bold" FontStretch="Expanded"/>
+				<TextBlock Foreground="#09244b" Text="Телефон:" VerticalAlignment="Center"/>
+				<TextBox BorderBrush="#09244b" BorderThickness="2" Text="{Binding Phone}" Watermark="7(___)___-__-__" Width="200" Margin="10" FontWeight="Bold" FontStretch="Expanded"/>
 			</StackPanel>
 
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-				<TextBlock Text="Мероприятие:" VerticalAlignment="Center" />
-				<ComboBox Width="200" Margin="10,10,10,10"/>
+				<TextBlock Foreground="#09244b" Text="Мероприятие:" VerticalAlignment="Center" />
+				<ComboBox BorderBrush="#09244b" BorderThickness="2" ItemsSource="{Binding EventList}" SelectedItem="{Binding SelectEvent}"
+					Width="200" MaxDropDownHeight="300" Margin="10">
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<TextBlock Foreground="#09244b" Text="{Binding NameEvent}"/>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+				<TextBlock Foreground="#09244b" Text="Страна:" VerticalAlignment="Center"/>
+				<ComboBox BorderBrush="#09244b" BorderThickness="2" ItemsSource="{Binding CountryList}" SelectedItem="{Binding SelectCountry}"
+					Width="200" MaxDropDownHeight="300" Margin="10">
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<TextBlock Foreground="#09244b" Text="{Binding NameCountry}"/>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
 			</StackPanel>
 		</StackPanel>
 			<StackPanel Width="400">
 			<Image Source="{Binding Image}" Height="220"/>
 				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-					<TextBlock Text="Пароль:" VerticalAlignment="Center"/>
-					<TextBox Watermark="Password" PasswordChar="*" Width="200" Margin="10" FontStyle="Italic"/>
+					<TextBlock Foreground="#09244b" Text="Пароль:" VerticalAlignment="Center"/>
+					<TextBox BorderBrush="#09244b" BorderThickness="2" Text="{Binding Password}" Watermark="Password" PasswordChar="{Binding PasswordChar}" Width="200" Margin="10" FontStyle="Italic"/>
 				</StackPanel>
 				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-					<TextBlock Text="Повтор пароля:" VerticalAlignment="Center"/>
-					<TextBox Watermark="Re-enter password" PasswordChar="*" Width="200" Margin="10" FontStyle="Italic"/>
+					<TextBlock Foreground="#09244b" Text="Повтор пароля:" VerticalAlignment="Center"/>
+					<TextBox BorderBrush="#09244b" BorderThickness="2" Text="{Binding Password_confirm}" Watermark="Re-enter password" PasswordChar="{Binding PasswordChar}" Width="200" Margin="10" FontStyle="Italic"/>
 				</StackPanel>
 				
-				<CheckBox Content="Видимый пароль" HorizontalAlignment="Right" Width="200"/>
+				<CheckBox  IsChecked="{Binding IsPasswordVisible}" HorizontalAlignment="Right" Width="200">
+					<TextBlock Foreground="#09244b" Text="Видимый пароль"/>
+					</CheckBox>
 				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10" Width="200" Margin="10">
-					<Button Content="Ок" Width="80"/>
-					<Button Content="Отмена" Width="80"/>
+					<Button Background="#09244b" Command="{Binding RegisterCommand}" Width="100" Height="50">
+						<Button.Styles>
+							<Style>
+								<Style.Resources>
+									<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#7d3750</SolidColorBrush>
+								</Style.Resources>
+							</Style>
+						</Button.Styles>
+						<TextBlock Foreground="#ccc3da" Text="Ок" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+					</Button>
+					<Button Background="#09244b" Command="{Binding NavigatetoOrganize}" Width="100" Height="50">
+						<Button.Styles>
+							<Style>
+								<Style.Resources>
+									<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#7d3750</SolidColorBrush>
+								</Style.Resources>
+							</Style>
+						</Button.Styles>
+						<TextBlock Foreground="#ccc3da" Text="Отмена" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+					</Button>
 			</StackPanel>
+				<TextBlock Text="{Binding Message}"/>
 		</StackPanel>
 	</StackPanel>
 	</StackPanel>

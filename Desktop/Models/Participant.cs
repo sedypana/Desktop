@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Avalonia.Media.Imaging;
+using System;
 using System.Collections.Generic;
 
 namespace Desktop.Models;
@@ -24,6 +25,7 @@ public partial class Participant
     public string Password { get; set; } = null!;
 
     public string Photo { get; set; } = null!;
+    public Bitmap Image => ConvertToBItmap.LoadImage(Photo, "D:\\desktop\\Desktop\\Desktop\\Assets\\participant_media\\");
 
     public int? IdGender { get; set; }
 

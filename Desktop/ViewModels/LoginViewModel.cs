@@ -20,6 +20,9 @@ namespace Desktop.ViewModels
         public ReactiveCommand<Unit, object> NavigatetoMain { get; }
         public ReactiveCommand<Unit, object> NavigatetoRegister { get; }
         public ReactiveCommand<Unit, Unit> LoginCom { get; }
+        public ReactiveCommand<Unit, object> NavigatetoParticipant { get; }
+        public ReactiveCommand<Unit, object> NavigatetoJuri { get; }
+
         public string email;
         private string password;
         private string message;
@@ -36,6 +39,8 @@ namespace Desktop.ViewModels
         {
             _mvm = mvm;
             NavigatetoMain = ReactiveCommand.Create(() => mvm.CurrentView = new MainViewModel(mvm,null));
+            NavigatetoParticipant = ReactiveCommand.Create(() => mvm.CurrentView = new ParticipantViewModel(mvm,null));
+            NavigatetoJuri = ReactiveCommand.Create(() => mvm.CurrentView = new JuriViewModel(mvm, null));
             LoginCom = ReactiveCommand.Create(Login);
             Captcha_gen = GenerateRandomText(6);
         }
@@ -52,21 +57,20 @@ namespace Desktop.ViewModels
             Moder moder = db.Moders.FirstOrDefault(o => o.Password == PasswordUser && o.Email == EmailUser);
             if (moder != null && Captcha.Equals(Captcha_gen, StringComparison.InvariantCultureIgnoreCase))
             {
-                _mvm.CurrentView = new RegisterViewModel(_mvm);
                 return;
             }
 
             Juri juri = db.Juris.FirstOrDefault(o => o.Password == PasswordUser && o.Email == EmailUser);
             if (juri != null && Captcha.Equals(Captcha_gen, StringComparison.InvariantCultureIgnoreCase))
             {
-                _mvm.CurrentView = new RegisterViewModel(_mvm);
+                _mvm.CurrentView = new JuriViewModel(_mvm, null);
                 return;
             }
 
             Participant participant = db.Participants.FirstOrDefault(o => o.Password == PasswordUser && o.Email == EmailUser);
             if (participant != null && Captcha.Equals(Captcha_gen, StringComparison.InvariantCultureIgnoreCase))
             {
-                _mvm.CurrentView = new RegisterViewModel(_mvm);
+                _mvm.CurrentView = new ParticipantViewModel(_mvm, null);
                 return;
             }
 
@@ -85,7 +89,7 @@ namespace Desktop.ViewModels
 
         private static string GenerateRandomText(int length)
         {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            const string chars = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz0123456789";
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }

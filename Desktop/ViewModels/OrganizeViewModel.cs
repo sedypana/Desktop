@@ -32,6 +32,8 @@ namespace Desktop.ViewModels
         public ReactiveCommand<Unit, object> NavigatetoEvent { get; }
         public ReactiveCommand<Unit, object> NavigatetoLogin { get; }
         public ReactiveCommand<Unit, object> NavigatetoRegister { get; }
+        public ReactiveCommand<Unit, object> NavigatetoParticipant { get; }
+        public ReactiveCommand<Unit, object> NavigatetoJuri { get; }
 
         public OrganizeViewModel(MainWindowViewModel mvm, Organizer organizer) {
 
@@ -65,7 +67,9 @@ namespace Desktop.ViewModels
             NavigatetoProf = ReactiveCommand.Create(() => mvm.CurrentView = new OrganizeProfileViewModel(mvm, organizer));
             NavigatetoEvent = ReactiveCommand.Create(() => mvm.CurrentView = new MainViewModel(mvm, organizer));
             NavigatetoLogin = ReactiveCommand.Create(() => mvm.CurrentView = new LoginViewModel(mvm));
-            NavigatetoRegister = ReactiveCommand.Create(() => mvm.CurrentView = new RegisterViewModel(mvm));
+            NavigatetoRegister = ReactiveCommand.Create(() => mvm.CurrentView = new RegisterViewModel(mvm, organizer));
+            NavigatetoParticipant = ReactiveCommand.Create(() => mvm.CurrentView = new ParticipantViewModel(mvm, organizer));
+            NavigatetoJuri = ReactiveCommand.Create(() => mvm.CurrentView = new JuriViewModel(mvm, organizer));
         }
         
     }
