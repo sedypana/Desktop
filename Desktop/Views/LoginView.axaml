@@ -13,12 +13,12 @@
 	<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
 		<TextBlock Foreground="#09244b" Text="Авторизация" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold"/>
 		<StackPanel Margin="15">
-			<TextBox Width="200" Margin="10" Text="{Binding EmailUser}" BorderBrush="#09244b" BorderThickness="2"/>
-			<TextBox Width="200" Text="{Binding PasswordUser}" BorderBrush="#09244b" BorderThickness="2"/>
+			<TextBox Width="200" Watermark="E-mail" Margin="10" Text="{Binding EmailUser}" BorderBrush="#09244b" BorderThickness="2"/>
+			<TextBox Width="200" Watermark="Password" Text="{Binding PasswordUser}" BorderBrush="#09244b" BorderThickness="2"/>
 		</StackPanel>
 		<StackPanel>
 			<TextBlock Foreground="#09244b" Text="{Binding Captcha_gen}" Margin="10" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-			<TextBox Text="{Binding Captcha}" Width="200" BorderBrush="#09244b" BorderThickness="2" />
+			<TextBox Watermark="captcha" Text="{Binding Captcha}" Width="200" BorderBrush="#09244b" BorderThickness="2" />
 			<TextBlock Foreground="#09244b" Text="{Binding Message}" Margin="10" FontSize="20" FontWeight="Bold"/>
 		</StackPanel>
 		<StackPanel>
